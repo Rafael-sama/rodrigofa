@@ -204,17 +204,19 @@
                     </a>
                 </div>
 
-                <!-- Links do Menu (Desktop) -->
-                <div class="hidden md:flex items-center space-x-6">
-                    <a href="#biography" class="py-1 px-1 text-gray-800 hover:text-accent transition duration-300 nav-link-underline">Minha História</a>
-                    <a href="#discography" class="py-1 px-1 text-gray-800 hover:text-accent transition duration-300 nav-link-underline">Discografia</a>
-                    <a href="#contato" class="py-1 px-1 text-gray-800 hover:text-accent transition duration-300 nav-link-underline">Contato</a>
-                </div>
-
                 <!-- Botão Hamburger (Mobile) -->
-                <button id="mobile-menu-button" class="md:hidden flex items-center">
-                    <i class="fas fa-bars text-2xl text-gray-600"></i>
-                </button>
+<div class="md:hidden flex items-center">
+    <button class="mobile-menu-button">
+        <i class="fas fa-bars text-2xl text-gray-600"></i>
+    </button>
+</div>
+
+<!-- Menu Mobile (escondido por padrão) -->
+<div class="mobile-menu hidden md:hidden bg-gray-200 px-4">
+    <a href="#biography" class="block py-2 text-gray-800 hover:text-accent">Minha História</a>
+    <a href="#discography" class="block py-2 text-gray-800 hover:text-accent">Discografia</a>
+    <a href="#contato" class="block py-2 text-gray-800 hover:text-accent">Contato</a>
+</div>
 
                 <!-- Botão de Voltar para a Página Inicial -->
                 <div class="flex items-center space-x-3">
@@ -389,6 +391,29 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
+     <script>
+        // Mobile menu toggle
+        const btn = document.querySelector(".mobile-menu-button");
+        const menu = document.querySelector(".mobile-menu");
+
+        btn.addEventListener("click", () => {
+            menu.classList.toggle("hidden");
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // Esconde o menu mobile ao clicar em um link
+                menu.classList.add('hidden');
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
 </body>
 </html>
-
