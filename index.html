@@ -16,7 +16,7 @@
         }
         /* Estilos personalizados para a seção Hero */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('./hero1.jpg');
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('./hero2.jpg');
             background-size: cover;
             background-position: center;
         }
@@ -54,8 +54,8 @@
             color: white;
             border-radius: 50%;
             padding: 15px;
-            font-size: 2.5rem; /* Tamanho do ícone */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            font-size: 2rem; /* Tamanho do ícone */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -142,7 +142,7 @@
             transition: transform 0.3s ease-in-out;
         }
         .album-cover-container:hover {
-            transform: translateY(-5px); /* Efeito de elevação no hover */
+            transform: translateY(-15px); /* Efeito de elevação no hover */
         }
         .album-cover-container iframe {
             width: 100%;
@@ -164,7 +164,9 @@
             font-weight: bold; /* Deixa o texto em negrito */
         }
     </style>
+
 </head>
+
 <body class="font-sans antialiased text-gray-800">
     <!-- Navigation -->
     <nav class="bg-gray-200 shadow-lg fixed w-full z-10">
@@ -173,7 +175,7 @@
                 <!-- Nome do Artista -->
                 <div>
                     <a href="#" class="flex items-center py-4 px-2">
-                        <span class="font-semibold text-gray-600 text-lg">Rodrigo Fa</span>
+                        <span class="font-semibold text-gray-600 text-2xl">Rodrigo Fa</span>
                     </a>
                 </div>
 
@@ -188,7 +190,7 @@
 
                 <!-- Botão Agendar -->
                 <div class="hidden md:flex items-center space-x-3">
-                    <a href="https://docs.google.com/spreadsheets/d/1lvj2pejVQSrB5Up16bgYUqnFmehfk1YbC3qYWz_3rxo/edit?usp=sharing" target="_blank" class="py-2 px-4 bg-accent text-white rounded hover:bg-gray-700 transition duration-300">
+                    <a href="https://docs.google.com/spreadsheets/d/1lvj2pejVQSrB5Up16bgYUqnFmehfk1YbC3qYWz_3rxo/edit?usp=sharing" target="_blank" class="py-2 px-4 bg-accent text-white rounded-lg hover:bg-gray-700 transition duration-300">
                         <i class="fas fa-calendar-alt mr-2"></i>Agenda
                     </a>
                 </div>
@@ -217,7 +219,7 @@
 
     <!-- Hero Section -->
     <section id="inicio" class="hero text-white pt-32 pb-20 md:pt-40 md:pb-32 px-4 md:px-0">
-        <div class="max-w-6xl mx-auto text-center">
+        <div class="max-w-2xl mx-auto text-center">
             <h1 class="text-4xl md:text-6xl font-bold mb-6">Rodrigo Fa</h1>
             <p class="text-xl md:text-2xl mb-8">Música que transforma ambientes e cria experiências memoráveis</p>
             <div class="flex flex-col md:flex-row justify-center gap-4">
@@ -234,7 +236,8 @@
     <!-- About Section -->
     <section id="sobre" class="py-20 bg-gray-200 px-4">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-accent mb-16">Sobre o Artista</h2>
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-accent mb-0">Sobre o Artista</h2>
+            <div class="border-t border-[#4a5568] mt-8 pt-8"> </div>
             
             <div class="flex flex-col md:flex-row items-center gap-10">
                 <div class="w-full md:w-1/2">
@@ -277,7 +280,8 @@
     <!-- Repertoire Section -->
     <section id="repertorio" class="py-20 bg-white px-4">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-accent mb-16">Repertório Musical</h2>
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-accent mb-0">Repertório Musical</h2>
+            <div class="border-t border-[#4a5568] mt-8 pt-8"> </div>
             
             <!-- <div class="grid md:grid-cols-3 gap-8 mb-12"> -->
                 <!-- Cartão de Repertório 1 -->
@@ -359,15 +363,15 @@
                 </div> -->
             <!-- </div> -->
             
-            <div class="mt-12 text-center">
-                <p class="text-lg mb-6">Tenho um repertório flexível que pode ser adaptado às necessidades do seu evento.</p>
+            <div class="mt-6 text-center">
+                <p class="text-lg mb-10">Tenho um repertório flexível que pode ser adaptado às necessidades do seu evento.</p>
                 <a href="https://api.whatsapp.com/send?phone=+554891530512&text=Olá! Gostaria de solicitar um repertório personalizado." target="_blank" class="inline-block bg-accent hover:bg-gray-700 text-white font-bold py-3 px-8 rounded-full transition duration-300">
                     <i class="fas fa-headphones-alt mr-2"></i>Solicitar Repertório Personalizado
                 </a>
             </div>
 
             <!-- Spotify Playlist Iframe adicionado aqui -->
-            <div class="mt-16 max-w-2xl mx-auto">
+            <div class="mt-10 max-w-2xl mx-auto">
                 <h3 class="text-2xl font-bold text-center text-accent mb-8">Ouça Um Pouco do Meu Repertório</h3>
                 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/4rEmu5YxaFtHmatV9cxGKW?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             </div>
@@ -377,12 +381,14 @@
     <!-- Video/Gallery Section -->
     <section id="galeria" class="py-20 bg-gray-300 px-4">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-accent mb-16">Performances</h2>
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-accent mb-10">Performances</h2>
+            <div class="border-t border-[#4a5568] mt-8 pt-8"> </div>
             
             <div class="grid md:grid-cols-2 gap-8 mb-12">
                 <!-- Vídeo do YouTube 1 -->
                 <div class="video-container shadow-lg">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/5jrkL70RtaA?si=N8PkX6hMUYb2rsSl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>                </div>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/5jrkL70RtaA?si=N8PkX6hMUYb2rsSl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
                 <!-- Vídeo do YouTube 2 -->
                 <div class="video-container shadow-lg">
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/m61rwqxj388?si=PNzB4cq6e2QBpou4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -424,16 +430,18 @@
     <!-- Discografia Section (Antiga seção de Depoimentos) -->
     <section class="py-20 bg-accent text-white px-4">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Discografia</h2>
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-10">Discografia</h2>
+            <div class="border-t border-[#e2e8f0] mt-8 pt-8"> </div>
             
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Álbum 1 -->
                 <div class="album-cover-container">
+                    <!-- <a href="link-para-album-1.html" class="album-link block shadow-lg rounded-lg"> -->
                         <img src="A Luz de um Olhar.jpg" alt="Capa do Álbum Um" class="w-full h-auto object-cover rounded-lg">
                         <div class="album-title-overlay"> 
                             <p>A Luz de um Olhar - 2020</p> 
                         </div>
-                    </a>
+                    <!-- </a> -->
                 </div>
                 
                 <!-- Álbum 2 -->

@@ -33,8 +33,8 @@
             color: white;
             border-radius: 50%;
             padding: 15px;
-            font-size: 2.5rem; /* Tamanho do ícone */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            font-size: 2rem; /* Tamanho do ícone */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -70,6 +70,18 @@
             line-height: 1.6;   /* Altura da linha para melhor legibilidade */
             text-align: justify; /* Justifica o texto para um visual mais limpo */
         }
+
+        .biography-section h1 { /* Estilo para subtítulos principais da biografia */
+            font-family: 'Playfair Display', serif; /* Fonte para títulos */
+            font-weight: 700; /* font-bold */
+            color: #4a5568; /* text-accent */
+            margin-top: 1.5rem; /* pt-10 */
+            margin-bottom: 1.5rem; /* pb-6 */
+            text-align: center;
+            border-bottom: 2px solid #cbd5e0; /* Linha sutil para separar seções */
+            padding-bottom: 1rem;
+        }
+
         .biography-section h2 { /* Estilo para subtítulos principais da biografia */
             font-family: 'Playfair Display', serif; /* Fonte para títulos */
             font-size: 2.25rem; /* text-4xl */
@@ -117,34 +129,66 @@
         .biography-section a:hover {
             color: #2d3748; /* Cor mais escura no hover */
             border-bottom-color: #2d3748;
+        }        
+
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
         }
 
-        /* Estilos para o overlay de título do álbum */
+         /* Estilos para as capas de álbum na Discografia */
         .album-cover-container {
             position: relative;
-            display: block; /* Garante que o contêiner do álbum se comporta como um bloco para o fluxo normal */
-            border-radius: 0.5rem;
             overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-bottom: 1rem; /* Adiciona espaçamento abaixo do contêiner do álbum */
+            border-radius: 0.7rem; /* rounded-lg */
+            box-shadow: 0 6px 6px rgba(0, 0, 0, 0.5); /* shadow-md */
+            margin-bottom: 3rem; /* Adiciona espaçamento abaixo do contêiner do álbum */
+            transition: transform 0.3s ease-in-out;
         }
-        .album-cover-container img {
+        .album-cover-container:hover {
+            transform: translateY(-15px); /* Efeito de elevação no hover */
+        }
+        .album-cover-container iframe {
             width: 100%;
-            height: auto;
-            object-fit: cover;
-            border-radius: 0.5rem;
+            height: 352px; /* Altura padrão para embeds do Spotify */
+            display: block;
+            border-radius: 10px;
         }
-        .album-title-overlay {
-            text-align: center;
-            padding: 10px 0;
-            color: #333;
+
+         .album-title-overlay {
+            padding: 5px 0;    /* Adiciona um espaço acima e abaixo do texto */
+            color: #4a5568;   /* Cor do texto, um cinza escuro; ajuste se precisar */
         }
+
         .album-title-overlay p {
-            margin: 0;
-            font-family: 'Playfair Display', serif; /* Fonte para o nome do álbum */
-            font-size: 1.2em;
-            font-weight: bold;
+            text-align: center; /* Centraliza o texto horizontalmente */
+            margin: 0; /* Remove a margem padrão do parágrafo */
+            font-family: 'Playfair Display','Montserrat', sans-serif; /* Exemplo de fonte: Montserrat. Troque pela sua preferida! */
+            font-size: 1.2em; /* Tamanho da fonte; ajuste para maior ou menor */
+            font-weight: bold; /* Deixa o texto em negrito */
         }
+
+        /* Estilo para a barrinha de sublinhado na navegação */
+        .nav-link-underline {
+            position: relative;
+            display: inline-block; /* Para que o pseudo-elemento funcione corretamente */
+        }
+        .nav-link-underline::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px; /* Espessura da barrinha */
+            bottom: -2px; /* Posição mais próxima do texto */
+            left: 0;
+            background-color: #4a5568; /* Cor da barrinha (cor accent) */
+            transition: width 0.3s ease-in-out; /* Transição suave */
+        }
+        .nav-link-underline:hover::after {
+            width: 100%;
+        }
+
+
+
     </style>
 </head>
 <body class="font-sans antialiased text-gray-800 bg-gray-100">
@@ -156,14 +200,26 @@
                 <!-- Nome do Artista -->
                 <div>
                     <a href="index.html" class="flex items-center py-4 px-2">
-                        <span class="font-semibold text-gray-500 text-lg">Rodrigo Fa</span>
+                        <span class="font-semibold text-gray-500 text-2xl">Rodrigo Fa</span>
                     </a>
                 </div>
 
+                <!-- Links do Menu (Desktop) -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="#biography" class="py-1 px-1 text-gray-800 hover:text-accent transition duration-300 nav-link-underline">Minha História</a>
+                    <a href="#discography" class="py-1 px-1 text-gray-800 hover:text-accent transition duration-300 nav-link-underline">Discografia</a>
+                    <a href="#contato" class="py-1 px-1 text-gray-800 hover:text-accent transition duration-300 nav-link-underline">Contato</a>
+                </div>
+
+                <!-- Botão Hamburger (Mobile) -->
+                <button id="mobile-menu-button" class="md:hidden flex items-center">
+                    <i class="fas fa-bars text-2xl text-gray-600"></i>
+                </button>
+
                 <!-- Botão de Voltar para a Página Inicial -->
                 <div class="flex items-center space-x-3">
-                    <a href="index.html" class="py-2 px-4 bg-accent text-white rounded hover:bg-gray-700 transition duration-300">
-                        <i class="fas fa-arrow-left mr-2"></i>Voltar para Início
+                    <a href="index.html" class="py-2 px-4 bg-accent text-white rounded-lg hover:bg-gray-700 transition duration-300">
+                        <i class="fas fa-arrow-left mr-5"></i>Voltar
                     </a>
                 </div>
             </div>
@@ -173,9 +229,10 @@
     <!-- Biography Section -->
     <section id="biography" class="py-20 bg-gray-200 px-4 pt-32">
         <div class="max-w-6xl mx-auto">
-            <h1 class="text-4xl md:text-5xl font-bold text-center text-accent mb-12">Minha História</h1>
+            <!-- <h1 class="text-4xl md:text-5xl font-bold text-center text-accent mb-12">Minha História</h1> -->
             
             <div class="bg-white p-8 md:p-12 rounded-lg shadow-xl biography-section">
+                <h1 class="text-4xl md:text-5xl font-bold text-center text-accent mb-12">Minha História</h1>
                 <p>Sou Rodrigo Fa, músico, guitarrista, violonista, compositor e escritor de Palhoça.</p>
                 <p>Comecei a tocar aos 8 anos de idade, em 1988, incentivado pelos meus pais. Tive aulas de violão com a professora Rosana, que, com muita sabedoria, me passou os fundamentos iniciais. Segui estudando e buscando orientação com outros professores ao longo dos anos.</p>
                 <p>No colégio, tive minha primeira banda, formada por alunos para um festival de música. Não nos classificamos, mas apresentamos uma música de minha autoria. Desde cedo, sempre gostei de escrever e compor. Também me apresentei em eventos escolares, como o Dia das Crianças, Dia dos Professores e Dia da Árvore – este último com uma música de minha autoria, cantada ao vivo na Rádio São Francisco.</p>
@@ -217,26 +274,44 @@
                 <p>Em 2019, a banda <strong>Combat</strong> se reuniu para gravar um <strong>DVD comemorativo</strong>, celebrando 28 anos de carreira. A banda permanece ativa até hoje.</p>
                 <p>Em 2020, comecei a me dedicar mais à carreira solo e ao meu livro de poesias, que está em fase final de produção. Lancei três álbuns, disponíveis em todas as plataformas digitais:</p>
                 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8 mb-8">
-                    <div class="album-cover-container">
-                        <img src="A Luz de um Olhar.jpg" alt="Capa do Álbum A Luz de Um Olhar – Acústico">
-                        <div class="album-title-overlay">
-                            <p>A Luz de Um Olhar – Acústico</p>
+                <!-- Discografia Section (Antiga seção de Depoimentos) -->
+                    <section class="bg-white text-white px-4">
+                        <div class="max-w-6xl mx-auto">
+                            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16"></h2>
+                            
+                            <div class="grid md:grid-cols-3 gap-8">
+                                <!-- Álbum 1 -->
+                                <div class="album-cover-container">
+                                    <a href="https://open.spotify.com/album/3qT5wOD9JPmdmMTRq3S5bN?si=8QgeFjc3Rd20Sl2NrKI5tw" class="album-link block shadow-lg rounded-lg" target="_blank">
+                                        <img src="A Luz de um Olhar.jpg" alt="Capa do Álbum Um" class="w-full h-auto object-cover rounded-lg">
+                                        <div class="album-title-overlay"> 
+                                            <p>A Luz de um Olhar - 2020</p> 
+                                        </div>
+                                    </a>
+                                </div>
+                                
+                                <!-- Álbum 2 -->
+                                <div class="album-cover-container">
+                                    <a href="https://open.spotify.com/album/2HNOZ8gzBry2xHap0VKdTD?si=66dHZ41mSHOzz_nnKc3Qbw" class="album-link block shadow-lg rounded-lg" target="_blank">
+                                        <img src="Rodrigo Fa.jpg" alt="Capa do Álbum Dois" class="w-full h-auto object-cover rounded-lg">
+                                        <div class="album-title-overlay">
+                                            <p>Rodrigo Fa - 2021</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                
+                                <!-- Álbum 3 -->
+                                <div class="album-cover-container">
+                                    <a href="https://open.spotify.com/album/69Ff3JsrUiup8BoAWc5aRZ?si=PUHiyIXSSAGpfBRTdTP-jw" class="album-link block shadow-lg rounded-lg" target="_blank">
+                                        <img src="Passos Lentos.jpg" alt="Capa do Álbum Três" class="w-full h-auto object-cover rounded-lg">
+                                        <div class="album-title-overlay">
+                                            <p>Passos Lentos (Acústico 2)</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="album-cover-container">
-                        <img src="Rodrigo Fa.jpg" alt="Capa do Álbum Rodrigo Fa ">
-                        <div class="album-title-overlay">
-                            <p>Rodrigo Fa – EP</p>
-                        </div>
-                    </div>
-                    <div class="album-cover-container">
-                        <img src="Passos Lentos.jpg" alt="Capa do Álbum Passos Lentos – Acústico Vol. 2">
-                        <div class="album-title-overlay">
-                            <p>Passos Lentos – Acústico Vol. 2</p>
-                        </div>
-                    </div>
-                </div>
+                    </section>               
 
                 <p>Atualmente, continuo tocando com a banda Combat e com o Theatro dos Bonecos, além de atuar como músico freelancer em outros projetos, tanto em palco quanto em estúdio. Também me apresento em bares, casamentos, festas corporativas e pubs com minha carreira solo como Rodrigo Fa.</p>
             </div>
