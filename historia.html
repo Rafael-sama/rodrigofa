@@ -7,6 +7,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome para ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Google Fonts - Inter (corpo) e Playfair Display (títulos) para melhor legibilidade e estética -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
@@ -107,7 +110,7 @@
             margin-bottom: 1em;
         }
         .biography-image {
-            max-width: 50%;
+            max-width: 100%;
             height: auto;
             border-radius: 0.75rem; /* rounded-xl */
             box-shadow: 0 10px 15px rgba(0,0,0,0.1); /* shadow-xl */
@@ -188,6 +191,34 @@
         }
 
 
+                /* Ajuste responsivo para imagens da história */
+     
+        /* Somente em telas médias para cima (PC/tablet) */
+        @media (min-width: 768px) {
+            .biography-image {
+                max-width: 50%;
+            }
+        }
+
+        /* Ajuste para imagens dos álbuns no celular */
+        .album-cover-container img {
+            width: 100%;
+            height: auto;
+            max-width: 250px; /* limite no celular */
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+
+        /* Em telas maiores, mantém sem limite */
+        @media (min-width: 768px) {
+            .album-cover-container img {
+                max-width: none;
+            }
+        }
+
+
+
 
     </style>
 </head>
@@ -205,18 +236,18 @@
                 </div>
 
                 <!-- Botão Hamburger (Mobile) -->
-<div class="md:hidden flex items-center">
-    <button class="mobile-menu-button">
-        <i class="fas fa-bars text-2xl text-gray-600"></i>
-    </button>
-</div>
+                <div class="md:hidden flex items-center">
+                    <button class="mobile-menu-button">
+                        <i class="fas fa-bars text-2xl text-gray-600"></i>
+                    </button>
+                </div>
 
-<!-- Menu Mobile (escondido por padrão) -->
-<div class="mobile-menu hidden md:hidden bg-gray-200 px-4">
-    <a href="#biography" class="block py-2 text-gray-800 hover:text-accent">Minha História</a>
-    <a href="#discography" class="block py-2 text-gray-800 hover:text-accent">Discografia</a>
-    <a href="#contato" class="block py-2 text-gray-800 hover:text-accent">Contato</a>
-</div>
+                <!-- Menu Mobile (escondido por padrão) -->
+                <div class="mobile-menu hidden md:hidden bg-gray-200 px-4">
+                    <a href="#biography" class="block py-2 text-gray-800 hover:text-accent">Minha História</a>
+                    <a href="#discography" class="block py-2 text-gray-800 hover:text-accent">Discografia</a>
+                    <a href="#contato" class="block py-2 text-gray-800 hover:text-accent">Contato</a>
+                </div>
 
                 <!-- Botão de Voltar para a Página Inicial -->
                 <div class="flex items-center space-x-3">
