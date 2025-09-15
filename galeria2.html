@@ -167,6 +167,25 @@
         .close-modal-btn:hover {
             background-color: rgba(0, 0, 0, 0.1);
         }
+
+        /* Estilo para a barrinha de sublinhado na navegação */
+        .nav-link-underline {
+            position: relative;
+            display: inline-block; /* Para que o pseudo-elemento funcione corretamente */
+        }
+        .nav-link-underline::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px; /* Espessura da barrinha */
+            bottom: -2px; /* Posição mais próxima do texto */
+            left: 0;
+            background-color: #4a5568; /* Cor da barrinha (cor accent) */
+            transition: width 0.3s ease-in-out; /* Transição suave */
+        }
+        .nav-link-underline:hover::after {
+            width: 100%;
+        }
     </style>
 </head>
 <body class="font-sans antialiased text-gray-800 bg-gray-100">
@@ -182,13 +201,31 @@
                     </a>
                 </div>
 
-                <!-- Botão de Voltar para a Página Inicial -->
-                <div class="flex items-center space-x-3">
-                    <a href="index.html" class="py-2 px-4 bg-accent text-white rounded-lg hover:bg-gray-700 transition duration-300">
-                        <i class="fas fa-arrow-left mr-5"></i>Voltar
-                    </a>
+                <!-- Links de Navegação (Desktop) -->
+                <div class="hidden md:flex space-x-6">
+                    <a href="galeria1.html" class="nav-link-underline text-gray-800 hover:text-accent">Rodrigo Fa</a>
+                    <a href="galeria2.html" class="nav-link-underline text-gray-800 hover:text-accent">Banda Combat</a>
+                    <a href="galeria3.html" class="nav-link-underline text-gray-800 hover:text-accent">Theatro dos Bonecos</a>
+                    <a href="galeria4.html" class="nav-link-underline text-gray-800 hover:text-accent">Freelancer</a>
+                    <a href="index.html" class="nav-link-underline text-gray-800 hover:text-accent">Voltar</a>
+                </div>
+
+                <!-- Botão Hamburger (Mobile) -->
+                <div class="md:hidden flex items-center">
+                    <button class="mobile-menu-button">
+                        <i class="fas fa-bars text-2xl text-gray-600"></i>
+                    </button>
                 </div>
             </div>
+        </div>
+
+        <!-- Menu Mobile -->
+        <div class="mobile-menu hidden md:hidden bg-gray-200 px-4 pb-4">
+            <a href="galeria1.html" class="block py-2 text-gray-800 hover:text-accent">Rodrigo Fa</a>
+            <a href="galeria2.html" class="block py-2 text-gray-800 hover:text-accent">Banda Combat</a>
+            <a href="galeria3.html" class="block py-2 text-gray-800 hover:text-accent">Theatro dos Bonecos</a>
+            <a href="galeria4.html" class="block py-2 text-gray-800 hover:text-accent">Freelancer</a>
+            <a href="index.html" class="block py-2 text-gray-800 hover:text-accent">Voltar</a>
         </div>
     </nav>
 
@@ -406,6 +443,18 @@
                 }
             });
         });
+
+
+        // Script simples para abrir/fechar o menu mobile
+        document.addEventListener("DOMContentLoaded", () => {
+            const btn = document.querySelector(".mobile-menu-button");
+            const menu = document.querySelector(".mobile-menu");
+
+            btn.addEventListener("click", () => {
+                menu.classList.toggle("hidden");
+            });
+        });
+
     </script>
 </body>
 </html>
