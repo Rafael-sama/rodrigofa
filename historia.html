@@ -7,9 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome para ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
     <!-- Google Fonts - Inter (corpo) e Playfair Display (títulos) para melhor legibilidade e estética -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
@@ -225,39 +223,43 @@
 <body class="font-sans antialiased text-gray-800 bg-gray-100">
 
     <!-- Navigation for the Biography Page -->
-    <nav class="bg-gray-200 shadow-lg fixed w-full z-10">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="flex justify-between items-center h-16">
-                <!-- Nome do Artista -->
-                <div>
-                    <a href="index.html" class="flex items-center py-4 px-2">
-                        <span class="font-semibold text-gray-500 text-2xl">Rodrigo Fa</span>
-                    </a>
-                </div>
+    <!-- Navigation for the Biography Page -->
+<nav class="bg-gray-200 shadow-lg fixed w-full z-10">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="flex justify-between items-center h-16">
+            <!-- Nome do Artista -->
+            <div>
+                <a href="index.html" class="flex items-center py-4 px-2">
+                    <span class="font-semibold text-gray-500 text-2xl">Rodrigo Fa</span>
+                </a>
+            </div>
 
-                <!-- Botão Hamburger (Mobile) -->
-                <div class="md:hidden flex items-center">
-                    <button class="mobile-menu-button">
-                        <i class="fas fa-bars text-2xl text-gray-600"></i>
-                    </button>
-                </div>
+            <!-- Links de Navegação (Desktop) -->
+            <div class="hidden md:flex space-x-6">
+                <a href="#biography" class="nav-link-underline text-gray-800 hover:text-accent">Minha História</a>
+                <a href="#discography" class="nav-link-underline text-gray-800 hover:text-accent">Discografia</a>
+                <a href="#contato" class="nav-link-underline text-gray-800 hover:text-accent">Contato</a>
+                <a href="index.html" class="nav-link-underline text-gray-800 hover:text-accent">Voltar</a>
+            </div>
 
-                <!-- Menu Mobile (escondido por padrão) -->
-                <div class="mobile-menu hidden md:hidden bg-gray-200 px-4">
-                    <a href="#biography" class="block py-2 text-gray-800 hover:text-accent">Minha História</a>
-                    <a href="#discography" class="block py-2 text-gray-800 hover:text-accent">Discografia</a>
-                    <a href="#contato" class="block py-2 text-gray-800 hover:text-accent">Contato</a>
-                </div>
-
-                <!-- Botão de Voltar para a Página Inicial -->
-                <div class="flex items-center space-x-3">
-                    <a href="index.html" class="py-2 px-4 bg-accent text-white rounded-lg hover:bg-gray-700 transition duration-300">
-                        <i class="fas fa-arrow-left mr-5"></i>Voltar
-                    </a>
-                </div>
+            <!-- Botão Hamburger (Mobile) -->
+            <div class="md:hidden flex items-center">
+                <button class="mobile-menu-button">
+                    <i class="fas fa-bars text-2xl text-gray-600"></i>
+                </button>
             </div>
         </div>
-    </nav>
+    </div>
+
+    <!-- Menu Mobile (visível apenas no mobile) -->
+    <div class="mobile-menu hidden md:hidden bg-gray-200 px-4 pb-4">
+        <a href="#biography" class="block py-2 text-gray-800 hover:text-accent">Minha História</a>
+        <a href="#discography" class="block py-2 text-gray-800 hover:text-accent">Discografia</a>
+        <a href="#contato" class="block py-2 text-gray-800 hover:text-accent">Contato</a>
+        <a href="index.html" class="block py-2 text-gray-800 hover:text-accent">Voltar</a>
+    </div>
+</nav>
+
 
     <!-- Biography Section -->
     <section id="biography" class="py-20 bg-gray-200 px-4 pt-32">
